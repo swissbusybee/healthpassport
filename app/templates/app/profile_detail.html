@@ -1,0 +1,37 @@
+{% include 'app/partials/base.html' %}
+
+<div class="container">
+    <div class="cards-show">
+        <div class="card">
+            <h5 class="card-header"><strong>Profile Information</strong></h5>
+            <div class="card-body">
+                <ul class="list-inline-profile">
+                    {{ profile.first_name }}
+                    <!-- <li><strong>Family Group Name:</strong> <%= @profile.family_group.name %></li>
+                <li><strong>First Name:</strong> <%= @profile.first_name %></li>
+                <li><strong>Last Name:</strong> <%= @profile.last_name %></li>
+                <li><strong>Address:</strong> <%= @profile.address %></li>
+                <li><strong>Phone Number:</strong> <%= @profile.phone_number %></li>
+                <li><strong>Email:</strong> <%= @profile.email %></li>
+                <li><strong>Date of Birth:</strong> <%= @profile.date_of_birth %></li>
+                <li><strong>Emergency Contact:</strong> <%= @profile.emergency_contact %></li>
+                <li><strong>Doctor Name & Contact:</strong> <%= @profile.doctor_name_contact %></li>
+                <li><strong>Blood Type:</strong> <%= @profile.blood_type %></li>
+                <li><strong>Allergies:</strong> <%= @profile.allergies %></li>
+                <li><strong>Existing Health Conditions:</strong> <%= @profile.existing_health_conditions%></li>
+                <li><strong>Date of Last Physical:</strong> <%= @profile.date_of_last_physical %></li>
+                <li><strong>Parent:</strong> <%= @profile.isParent %></li>
+                <li><strong>Child:</strong> <%= @profile.isChild %></li>
+              </ul>
+              <a><%= link_to "Edit", edit_profile_path(@profile), class: "btn btn-flat" %></a>
+                 <%= link_to profile_path(@profile),
+                      method: :delete,
+                      data: {confirm: "Are you sure you would like to delete this profile?"} do %>
+                      Delete <i class="far fa-trash-alt"></i>
+              <% end %> -->
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- <%= link_to "Back", family_group_path, class: "btn btn-flat" %> -->
+</div>

@@ -1,0 +1,24 @@
+{% include 'app/partials/base.html' %}
+
+<div class="container">
+    <div class="cards-show">
+        <div class="card">
+            <h5 class="card-header"><strong>{{ familygroup.family_group_name }}</strong></h5>
+            <div class="card-body">
+                <ul class="list-inline-profile">
+                    <li><strong>Family Name:</strong> {{ familygroup.family_group_name }}</li>
+                    {% for profile in familygroup.profile_set.all %}
+                    <li><strong>Member/s:</strong></li>
+                    <a href="{{ profile.get_absolute_url }}">
+                        {{ profile.id }}
+                        {{ profile.first_name }}
+                        {{ profile.last_name }}
+                    </a>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <a class="btn btn-flat" href="{% url 'familygroups' %}">Back to Manage Profiles</a>
+</div>

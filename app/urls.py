@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
-    path('vaccines/', views.vaccines, name='vaccines'), 
-    path('manage/', views.manage, name='manage'),     
+    path('familygroups/', views.FamilyGroupListView.as_view(), name='familygroups'),  
+    path('familygroup/<int:pk>', views.FamilyGroupDetailView.as_view(), name='familygroup-detail'),
+    path('profile/<int:pk>', views.ProfileDetailView.as_view(), name='profile-detail'),     
 ]
