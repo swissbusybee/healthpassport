@@ -6,15 +6,17 @@
             <h5 class="card-header"><strong>{{ familygroup.family_group_name }}</strong></h5>
             <div class="card-body">
                 <ul class="list-inline-profile">
-                    <li><strong>Family Name:</strong> {{ familygroup.family_group_name }}</li>
                     {% for profile in familygroup.profile_set.all %}
-                    <li><strong>Member/s:</strong></li>
-                    <a href="{{ profile.get_absolute_url }}">
-                        {{ profile.id }}
-                        {{ profile.first_name }}
-                        {{ profile.last_name }}
-                    </a>
+                    <strong>Member/s:</strong>
+                    <li><a href="{{ profile.get_absolute_url }}">
+                            {{ profile.first_name }}
+                            {{ profile.last_name }}
+                        </a></li>
                     {% endfor %}
+                    <img src='images/icons8-two-ponytails-hair-lady-with-green-glasses.png' class="avatar-large" />
+                    <img src='images/icons8-man-in-blue-t-shirt.png' class="avatar-large" />
+                    <img src='images/icons8-brown-pigtail-hair-lady.png' class="avatar-large" />
+                    <img src='images/icons8-bald-man-in-green-jacket.png' class="avatar-large" />
                 </ul>
             </div>
         </div>

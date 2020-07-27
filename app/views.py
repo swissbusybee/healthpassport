@@ -15,34 +15,24 @@ def about(request):
 def contact(request):
     return render(request, 'app/contact.html')
 
-# def manage(request):
-#     all_family_groups = FamilyGroup.objects.all()
-#     context = { 'all_family_groups': all_family_groups}
-#     return render(request, 'app/manage.html', context)
-
-# def family_group_detail(request, familygroup_id):
-#     familygroup = FamilyGroup.objects.get(pk=familygroup_id)
-#     all_profiles = Profile.objects.all()
-#     context = {
-#         'familygroup': familygroup,
-#         'all_profiles': all_profiles,
-#         }
-#     return render(request, 'app/family_group_detail.html', context)
-
-# def profile_detail(request, profile_id):
-#     profile = get_object_or_404(Profile, pk=profile_id)
-#     context = {
-#         'profile': profile,
-#         }
-#     return render(request, 'app/profile_detail.html', context)
-
 class FamilyGroupListView(generic.ListView):
     model = FamilyGroup
 
 class FamilyGroupDetailView(generic.DetailView):
     model = FamilyGroup
   
-
 class ProfileDetailView(generic.DetailView):
     model = Profile
+
+class VaccineListView(generic.ListView):
+    model = Vaccine
+
+class VaccineDetailView(generic.DetailView):
+    model = Vaccine
+
+class ImmunizationListView(generic.ListView):
+    model = Immunization
+
+class ImmunizationDetailView(generic.DetailView):
+    model = Immunization
  

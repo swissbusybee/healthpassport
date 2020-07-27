@@ -1,37 +1,67 @@
 {% include 'app/partials/base.html' %}
 
+<div class="banner"
+    style="background-image: linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);">
+    <div class="container">
+        <h1>{{ profile.first_name }} {{ profile.last_name }} Profile</h1>
+        <p>Personal data, health and vaccination / immunization information</p>
+        <a class="btn btn-flat" href="{% url 'familygroups' %}">Upload Vaccination Card</a>
+    </div>
+</div>
+
 <div class="container">
-    <div class="cards-show">
+    <div class="cards">
         <div class="card">
-            <h5 class="card-header"><strong>Profile Information</strong></h5>
+            <h5 class="card-header"><strong>Personal Information</strong></h5>
             <div class="card-body">
                 <ul class="list-inline-profile">
-                    {{ profile.first_name }}
-                    <!-- <li><strong>Family Group Name:</strong> <%= @profile.family_group.name %></li>
-                <li><strong>First Name:</strong> <%= @profile.first_name %></li>
-                <li><strong>Last Name:</strong> <%= @profile.last_name %></li>
-                <li><strong>Address:</strong> <%= @profile.address %></li>
-                <li><strong>Phone Number:</strong> <%= @profile.phone_number %></li>
-                <li><strong>Email:</strong> <%= @profile.email %></li>
-                <li><strong>Date of Birth:</strong> <%= @profile.date_of_birth %></li>
-                <li><strong>Emergency Contact:</strong> <%= @profile.emergency_contact %></li>
-                <li><strong>Doctor Name & Contact:</strong> <%= @profile.doctor_name_contact %></li>
-                <li><strong>Blood Type:</strong> <%= @profile.blood_type %></li>
-                <li><strong>Allergies:</strong> <%= @profile.allergies %></li>
-                <li><strong>Existing Health Conditions:</strong> <%= @profile.existing_health_conditions%></li>
-                <li><strong>Date of Last Physical:</strong> <%= @profile.date_of_last_physical %></li>
-                <li><strong>Parent:</strong> <%= @profile.isParent %></li>
-                <li><strong>Child:</strong> <%= @profile.isChild %></li>
-              </ul>
-              <a><%= link_to "Edit", edit_profile_path(@profile), class: "btn btn-flat" %></a>
-                 <%= link_to profile_path(@profile),
-                      method: :delete,
-                      data: {confirm: "Are you sure you would like to delete this profile?"} do %>
-                      Delete <i class="far fa-trash-alt"></i>
-              <% end %> -->
+                    <li><strong>First Name:</strong> {{ profile.first_name }}</li>
+                    <li><strong>Last Name:</strong> {{ profile.last_name }}</li>
+                    <li><strong>Address:</strong> {{ profile.address }}</li>
+                    <li><strong>Phone Number:</strong> {{ profile.phone_number }}</li>
+                    <li><strong>Date of Birth:</strong> {{ profile.date_of_birth }}</li>
+                    <li><strong>Emergency Contact:</strong> {{ profile.emergency_contact }}</li>
+                    <li><strong>Doctor Name & Contact:</strong> {{ profile.doctor_name_contact }}</li>
+                    <li><strong>Blood Type:</strong> {{ profile.blood_type }}</li>
+                    <li><strong>Allergies:</strong> {{ profile.allergies }}</li>
+                    <li><strong>Existing Health Conditions:</strong> {{ profile.existing_health_conditions }}</li>
+                    <li><strong>Is Parent:</strong> {{ profile.isParent }}</li>
+                    <li><strong>Is Child:</strong> {{ profile.isChild }}</li>
+                </ul>
+                <!-- <a><%= link_to "Edit", edit_user_registration_path, class: "btn btn-flat" %></a> -->
             </div>
         </div>
+
+        <div class="card">
+            <h5 class="card-header"><strong>Vaccinations / Immunizations</strong></h5>
+            <div class="card-body">
+                {% for immunization in profile.immunization_set.all %}
+                <div class="notification">
+                    <div class="notification-content text-left">
+                        <p><a href="{{ immunization.get_absolute_url }}">
+                                {{ immunization.vaccine.vaccine_name }}
+                            </a></p>
+                        <p><small>Expires: {{ immunization.expired_by }}</small></p>
+                    </div>
+                    <!-- <div class="notification-actions">
+                        <%= link_to edit_vaccination_path(vaccination),
+                      method: :get do %>
+                        Edit <i class=" fas fa-pencil-alt"></i>
+                        <% end %>
+                        <%= link_to vaccination_path(vaccination),
+                      method: :delete,
+                      data: {confirm: "Are you sure you would like to delete this vaccination?"} do %>
+                        Delete <i class="far fa-trash-alt"></i>
+                        <% end %>
+                    </div> -->
+                </div>
+                {% endfor %}
+                <br>
+                <!-- <a><%= link_to "Add Vaccination", new_vaccination_path, class: "btn btn-flat" %></a> -->
+            </div>
+        </div>
+
     </div>
     <hr>
-    <!-- <%= link_to "Back", family_group_path, class: "btn btn-flat" %> -->
+    <a class="btn btn-flat" href="{% url 'familygroups' %}">Back to Family Group</a>
 </div>
