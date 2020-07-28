@@ -5,15 +5,7 @@
 @import "button.css";
 @import "footer.css";
 @import "navbar.css";
-
-/* Graphical variables */
-/* red: #FD1015;
-blue: #167FFB;
-yellow: #FFC65A;
-orange: #E67E22;
-green: #1EDD88;
-gray: #0E0000;
-light-gray: #F4F4F4;  */
+@import "table.css";
 
 /* Import Google fonts */
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
@@ -26,23 +18,3 @@ body {
     font-family: Work Sans, Helvetica, sans-serif;
     background-color: #F4F4F4;
 }
-
-
-/* General style */
-/* $font-family-sans-serif:  $body-font;
-$headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
-$font-size-base: 1rem; */
-
-/* Colors
-$body-color: $gray;
-$primary:    $blue;
-$success:    $green;
-$info:       $yellow;
-$danger:     $red;
-$warning:    $orange;
-
-/* Buttons & inputs' radius */
-/* $border-radius:    2px;
-$border-radius-lg: 2px;
-$border-radius-sm: 2px; */ */

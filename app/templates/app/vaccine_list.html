@@ -1,3 +1,49 @@
 {% include 'app/partials/base.html' %}
 
-<h1>Vaccines</h1>
+<style>
+    table,
+    td,
+    th {
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 15px;
+    }
+</style>
+
+<div class="container">
+    <div class="cards-show">
+        <div class="card">
+            <h5 class="card-header"><strong>Vaccine List</strong></h5>
+            <table class="vaccine-table">
+                <tr>
+                    <th>Name</th>
+                    <th>Disease Type</th>
+                    <th>Doses Required</th>
+                    <th>Required Country</th>
+                    <th>Reccommended Age</th>
+                    <th>Notes</th>
+                </tr>
+                {% for vaccine in vaccine_list %}
+                <tr>
+                    <td><a href="{{ vaccine.get_absolute_url }}">{{ vaccine.vaccine_name }}</a></td>
+                    <td>{{ vaccine.disease_type }}</td>
+                    <td>{{ vaccine.doses_required }}</td>
+                    <td>{{ vaccine.required_country }}</td>
+                    <td>{{ vaccine.reccomended_age }}</td>
+                    <td>{{ vaccine.notes }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <hr>
+    <a class="btn btn-flat" href="{% url 'index' %}">Back to Home</a>

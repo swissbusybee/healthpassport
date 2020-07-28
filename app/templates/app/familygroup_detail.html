@@ -7,7 +7,7 @@
             <div class="card-body">
                 <ul class="list-inline-profile">
                     {% for profile in familygroup.profile_set.all %}
-                    <strong>Member/s:</strong>
+                    <strong>Member Profile/s:</strong>
                     <li><a href="{{ profile.get_absolute_url }}">
                             {{ profile.first_name }}
                             {{ profile.last_name }}

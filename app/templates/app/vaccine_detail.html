@@ -1,3 +1,21 @@
 {% include 'app/partials/base.html' %}
 
-<h1>Vaccines</h1>
+<div class="container">
+    <div class="cards-show">
+        <div class="card">
+            <h5 class="card-header"><strong>{{ vaccine.vaccine_name }} Vaccine Detail</strong>
+            </h5>
+            <div class="card-body">
+                <ul class="list-inline-profile">
+                    <li><strong>Name:</strong> {{ vaccine.vaccine_name }}</li>
+                    <li><strong>Disease Type:</strong> {{ vaccine.disease_type }}</li>
+                    <li><strong>Doses Required:</strong> {{ vaccine.doses_required }}</li>
+                    <li><strong>Required Country:</strong> {{ vaccine.required_country }}</li>
+                    <li><strong>Reccomended Age:</strong> {{ vaccine.reccomended_age }}</li>
+                    <li><strong>Notes:</strong> {{ vaccine.notes }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <a class="btn btn-flat" href="{% url 'vaccines' %}">Back to Vaccine List</a>
