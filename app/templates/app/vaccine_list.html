@@ -1,49 +1,51 @@
 {% include 'app/partials/base.html' %}
 
-<style>
-    table,
-    td,
-    th {
-        border: 1px solid #ddd;
-        text-align: left;
-    }
+<div class="banner-manage">
+    <div class="container text-center">
+        <h1>Vaccines</h1>
+        <p>List of all vaccines for review</p>
+        <a class="btn btn-flat" href="{% url 'vaccine-add' %}"> Add Vaccine</a>
+    </div>
+</div>
 
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    th,
-    td {
-        padding: 15px;
-    }
-</style>
+{% if vaccine_list %}
 
 <div class="container">
     <div class="cards-show">
         <div class="card">
-            <h5 class="card-header"><strong>Vaccine List</strong></h5>
             <table class="vaccine-table">
                 <tr>
                     <th>Name</th>
                     <th>Disease Type</th>
                     <th>Doses Required</th>
                     <th>Required Country</th>
-                    <th>Reccommended Age</th>
-                    <th>Notes</th>
+                    <th>Recommended Age</th>
+                    <th>Actions</th>
                 </tr>
                 {% for vaccine in vaccine_list %}
                 <tr>
-                    <td><a href="{{ vaccine.get_absolute_url }}">{{ vaccine.vaccine_name }}</a></td>
+                    <td><a href="{{ vaccine.get_absolute_url }}"><strong>{{ vaccine.vaccine_name }}</strong></a>
+                    </td>
                     <td>{{ vaccine.disease_type }}</td>
-                    <td>{{ vaccine.doses_required }}</td>
+                    <td>{{ vaccine.required_doses }}</td>
                     <td>{{ vaccine.required_country }}</td>
-                    <td>{{ vaccine.reccomended_age }}</td>
-                    <td>{{ vaccine.notes }}</td>
+                    <td>{{ vaccine.recommended_age }}</td>
+                    <td>
+                        <div class="notification-action-vaccines">
+                            <a href="{% url 'vaccine-update' vaccine.id %}">Edit <i class="fas fa-pencil-alt"></i></a>
+                            <a href="{% url 'vaccine-delete' vaccine.id %}">Delete <i class="far fa-trash-alt"></i></a>
+                        </div>
+                    </td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
+        {% else %}
+        <div class="text-center mt-5">
+            <p>No Vaccines available</p>
+        </div>
+        {% endif %}
     </div>
     <hr>
     <a class="btn btn-flat" href="{% url 'index' %}">Back to Home</a>
+</div>

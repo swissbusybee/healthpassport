@@ -1,4 +1,10 @@
-.card {
+  .profile-wrapper {
+    align-items: center;
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .card {
     border-radius: 3px;
     box-shadow: 0 0 5px rgb(230,230,230);
     text-align: center;
@@ -97,6 +103,17 @@
   .notification .notification-actions a:hover {
     color: #555555;
   }
+
+  .notification-action-vaccines a {
+    color: #999999;
+    font-size: 14px;
+  }
+
+  .notification-action-vaccines a:hover {
+    color: #555555;
+    opacity: 1;
+    transition: ease .3s;
+  }
   
  /* Smallest device */
   @media (min-width: 100px) and (max-width: 575px) {
@@ -149,6 +166,9 @@
     .cards-show {
       grid-template-columns: 1fr;
     }
+  }
+  .card-header {
+    background-color: #8AB0AB;
   }
   
   .postcards {

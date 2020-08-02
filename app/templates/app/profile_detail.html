@@ -17,7 +17,6 @@
                 <ul class="list-inline-profile">
                     <li><strong>First Name:</strong> {{ profile.first_name }}</li>
                     <li><strong>Last Name:</strong> {{ profile.last_name }}</li>
-                    <li><strong>Address:</strong> {{ profile.address }}</li>
                     <li><strong>Phone Number:</strong> {{ profile.phone_number }}</li>
                     <li><strong>Date of Birth:</strong> {{ profile.date_of_birth }}</li>
                     <li><strong>Emergency Contact:</strong> {{ profile.emergency_contact }}</li>
@@ -25,10 +24,9 @@
                     <li><strong>Blood Type:</strong> {{ profile.blood_type }}</li>
                     <li><strong>Allergies:</strong> {{ profile.allergies }}</li>
                     <li><strong>Existing Health Conditions:</strong> {{ profile.existing_health_conditions }}</li>
-                    <li><strong>Is Parent:</strong> {{ profile.isParent }}</li>
-                    <li><strong>Is Child:</strong> {{ profile.isChild }}</li>
+                    <li><strong>Family Member:</strong> {{ profile.family_member_type }}</li>
                 </ul>
-                <!-- <a><%= link_to "Edit", edit_user_registration_path, class: "btn btn-flat" %></a> -->
+                <a class="btn btn-flat" href="{% url 'profile-update' profile.id %}"> Edit Profile</a>
             </div>
         </div>
 
@@ -43,25 +41,22 @@
                             </a></p>
                         <p><small>Expires: {{ immunization.expired_by }}</small></p>
                     </div>
-                    <!-- <div class="notification-actions">
-                        <%= link_to edit_vaccination_path(vaccination),
-                      method: :get do %>
-                        Edit <i class=" fas fa-pencil-alt"></i>
-                        <% end %>
-                        <%= link_to vaccination_path(vaccination),
-                      method: :delete,
-                      data: {confirm: "Are you sure you would like to delete this vaccination?"} do %>
-                        Delete <i class="far fa-trash-alt"></i>
-                        <% end %>
-                    </div> -->
+                    <div class="notification-actions">
+                        <a href="{% url 'immunization-update' immunization.id %}"> Edit
+                            <i class=" fas fa-pencil-alt"></i>
+                        </a>
+                        <a href="{% url 'immunization-delete' immunization.id %}"> Delete
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+                    </div>
                 </div>
                 {% endfor %}
                 <br>
-                <!-- <a><%= link_to "Add Vaccination", new_vaccination_path, class: "btn btn-flat" %></a> -->
+                <a class="btn btn-flat" href="{% url 'immunization-add' %}"> Add Immunization</a>
             </div>
         </div>
 
     </div>
     <hr>
-    <a class="btn btn-flat" href="{% url 'familygroups' %}">Back to Family Group</a>
+    <a class="btn btn-flat" href="{% url 'familygroup-detail' profile.familygroup.id %}">Back to Family Group</a>
 </div>
