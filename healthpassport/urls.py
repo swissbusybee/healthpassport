@@ -23,3 +23,7 @@ urlpatterns = [
     path('', include('app.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+admin.site.site_header = "Health Passport Adminstration"
+admin.site.site_title = "Health Passport Admin Portal"
+admin.site.index_title = "Welcome to Health Passport Portal"

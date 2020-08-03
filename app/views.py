@@ -46,11 +46,13 @@ class ProfileCreate(CreateView):
     model = Profile
     template_name_suffix = '_create_form'
     fields = ['familygroup','first_name', 'last_name', 'date_of_birth', 'phone_number', 'emergency_contact', 'doctor_name_contact', 'blood_type', 'allergies', 'existing_health_conditions', 'family_member_type']
+    success_url = "/familygroup/{familygroup_id}"
 
 class ProfileUpdate(UpdateView):
     model = Profile
     template_name_suffix = '_update_form'
     fields = ['familygroup','first_name', 'last_name', 'date_of_birth', 'phone_number', 'emergency_contact', 'doctor_name_contact', 'blood_type', 'allergies', 'existing_health_conditions', 'family_member_type']
+    success_url = "/familygroup/{familygroup_id}"
 
 class ProfileDelete(DeleteView):
     model = Profile
@@ -67,11 +69,13 @@ class VaccineCreate(CreateView):
     model = Vaccine
     template_name_suffix = '_create_form'
     fields = ['vaccine_name', 'disease_type', 'required_doses', 'required_country', 'recommended_age', 'notes']
+    success_url = reverse_lazy('vaccines')
 
 class VaccineUpdate(UpdateView):
     model = Vaccine
     template_name_suffix = '_update_form'
     fields = ['vaccine_name', 'disease_type', 'required_doses', 'required_country', 'recommended_age', 'notes']
+    success_url = reverse_lazy('vaccines')
 
 class VaccineDelete(DeleteView):
     model = Vaccine
@@ -88,11 +92,13 @@ class ImmunizationCreate(CreateView):
     model = Immunization
     template_name_suffix = '_create_form'
     fields = ['vaccine', 'profile', 'expired_by', 'date_administered', 'administered_by', 'certified_by']
+    success_url = "/profile/{profile_id}"
 
 class ImmunizationUpdate(UpdateView):
     model = Immunization
     template_name_suffix = '_update_form'
     fields = ['vaccine', 'profile', 'expired_by', 'date_administered', 'administered_by', 'certified_by']
+    success_url = "/profile/{profile_id}"
 
 class ImmunizationDelete(DeleteView):
     model = Immunization
