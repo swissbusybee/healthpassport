@@ -4,6 +4,7 @@ from django.views.generic.edit import CreateView
 from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import FamilyGroup, Profile, Vaccine, Immunization
 
 def index(request):
@@ -15,92 +16,92 @@ def about(request):
 def contact(request):
     return render(request, 'app/contact.html')
 
-class FamilyGroupListView(generic.ListView):
+class FamilyGroupListView(LoginRequiredMixin, generic.ListView):
     model = FamilyGroup
 
-class FamilyGroupDetailView(generic.DetailView):
+class FamilyGroupDetailView(LoginRequiredMixin, generic.DetailView):
     model = FamilyGroup
 
-class FamilyGroupCreate(CreateView):
+class FamilyGroupCreate(LoginRequiredMixin, CreateView):
     model = FamilyGroup
     template_name_suffix = '_create_form'
     fields = ['family_group_name']
 
-class FamilyGroupUpdate(UpdateView):
+class FamilyGroupUpdate(LoginRequiredMixin, UpdateView):
     model = FamilyGroup
     template_name_suffix = '_update_form'
     fields = ['family_group_name']
 
-class FamilyGroupDelete(DeleteView):
+class FamilyGroupDelete(LoginRequiredMixin, DeleteView):
     model = FamilyGroup
     template_name_suffix = '_delete_form'
     success_url = reverse_lazy('familygroups')
 
-class ProfileListView(generic.ListView):
+class ProfileListView(LoginRequiredMixin, generic.ListView):
     model = Profile
 
-class ProfileDetailView(generic.DetailView):
+class ProfileDetailView(LoginRequiredMixin, generic.DetailView):
     model = Profile
 
-class ProfileCreate(CreateView):
+class ProfileCreate(LoginRequiredMixin, CreateView):
     model = Profile
     template_name_suffix = '_create_form'
     fields = ['familygroup','first_name', 'last_name', 'date_of_birth', 'phone_number', 'emergency_contact', 'doctor_name_contact', 'blood_type', 'allergies', 'existing_health_conditions', 'family_member_type']
     success_url = "/familygroup/{familygroup_id}"
 
-class ProfileUpdate(UpdateView):
+class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Profile
     template_name_suffix = '_update_form'
     fields = ['familygroup','first_name', 'last_name', 'date_of_birth', 'phone_number', 'emergency_contact', 'doctor_name_contact', 'blood_type', 'allergies', 'existing_health_conditions', 'family_member_type']
     success_url = "/familygroup/{familygroup_id}"
 
-class ProfileDelete(DeleteView):
+class ProfileDelete(LoginRequiredMixin, DeleteView):
     model = Profile
     template_name_suffix = '_delete_form'
     success_url = "/familygroup/{familygroup_id}"
 
-class VaccineListView(generic.ListView):
+class VaccineListView(LoginRequiredMixin, generic.ListView):
     model = Vaccine
 
-class VaccineDetailView(generic.DetailView):
+class VaccineDetailView(LoginRequiredMixin, generic.DetailView):
     model = Vaccine
 
-class VaccineCreate(CreateView):
+class VaccineCreate(LoginRequiredMixin, CreateView):
     model = Vaccine
     template_name_suffix = '_create_form'
     fields = ['vaccine_name', 'disease_type', 'required_doses', 'required_country', 'recommended_age', 'notes']
     success_url = reverse_lazy('vaccines')
 
-class VaccineUpdate(UpdateView):
+class VaccineUpdate(LoginRequiredMixin, UpdateView):
     model = Vaccine
     template_name_suffix = '_update_form'
     fields = ['vaccine_name', 'disease_type', 'required_doses', 'required_country', 'recommended_age', 'notes']
     success_url = reverse_lazy('vaccines')
 
-class VaccineDelete(DeleteView):
+class VaccineDelete(LoginRequiredMixin, DeleteView):
     model = Vaccine
     template_name_suffix = '_delete_form'
     success_url = reverse_lazy('vaccines')
 
-class ImmunizationListView(generic.ListView):
+class ImmunizationListView(LoginRequiredMixin, generic.ListView):
     model = Immunization
 
-class ImmunizationDetailView(generic.DetailView):
+class ImmunizationDetailView(LoginRequiredMixin, generic.DetailView):
     model = Immunization
  
-class ImmunizationCreate(CreateView):
+class ImmunizationCreate(LoginRequiredMixin, CreateView):
     model = Immunization
     template_name_suffix = '_create_form'
     fields = ['vaccine', 'profile', 'expired_by', 'date_administered', 'administered_by', 'certified_by']
     success_url = "/profile/{profile_id}"
 
-class ImmunizationUpdate(UpdateView):
+class ImmunizationUpdate(LoginRequiredMixin, UpdateView):
     model = Immunization
     template_name_suffix = '_update_form'
     fields = ['vaccine', 'profile', 'expired_by', 'date_administered', 'administered_by', 'certified_by']
     success_url = "/profile/{profile_id}"
 
-class ImmunizationDelete(DeleteView):
+class ImmunizationDelete(LoginRequiredMixin, DeleteView):
     model = Immunization
     template_name_suffix = '_delete_form'
     success_url = "/profile/{profile_id}"

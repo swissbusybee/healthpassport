@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from cloudinary.models import CloudinaryField
 
 class FamilyGroup(models.Model):
     family_group_name = models.CharField(max_length=200)
@@ -41,7 +42,8 @@ class Profile(models.Model):
     allergies = models.CharField(max_length=200, blank=True)
     existing_health_conditions = models.CharField(max_length=200, blank=True)
     family_member_type = models.CharField(max_length=200, choices=CHOICES, blank=True)
-
+    vaccine_card_image = CloudinaryField('image', blank=True, null=True)
+    
     def get_absolute_url(self):
         return reverse('profile-detail', args=[str(self.id)])
 
