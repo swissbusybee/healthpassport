@@ -5,6 +5,7 @@ from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponse
 from .models import FamilyGroup, Profile, Vaccine, Immunization
 
 def index(request):
@@ -46,13 +47,20 @@ class ProfileDetailView(LoginRequiredMixin, generic.DetailView):
 class ProfileCreate(LoginRequiredMixin, CreateView):
     model = Profile
     template_name_suffix = '_create_form'
-    fields = ['familygroup','first_name', 'last_name', 'date_of_birth', 'phone_number', 'emergency_contact', 'doctor_name_contact', 'blood_type', 'allergies', 'existing_health_conditions', 'family_member_type']
+    fields = ['familygroup','first_name', 'last_name', 'date_of_birth', 'phone_number', 'emergency_contact', 'doctor_name_contact', 'blood_type', 'allergies', 'existing_health_conditions', 'family_member_type', 'vaccine_card_image']
     success_url = "/familygroup/{familygroup_id}"
+    
+    # def add_image(request):
+    #     if request.method == "POST":
+    #         if form.is_valid():
+    #             form.save()   
+
+    #     return render(request, 'profile_detail.html', {'form': form})
 
 class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Profile
     template_name_suffix = '_update_form'
-    fields = ['familygroup','first_name', 'last_name', 'date_of_birth', 'phone_number', 'emergency_contact', 'doctor_name_contact', 'blood_type', 'allergies', 'existing_health_conditions', 'family_member_type']
+    fields = ['familygroup','first_name', 'last_name', 'date_of_birth', 'phone_number', 'emergency_contact', 'doctor_name_contact', 'blood_type', 'allergies', 'existing_health_conditions', 'family_member_type', 'vaccine_card_image']
     success_url = "/familygroup/{familygroup_id}"
 
 class ProfileDelete(LoginRequiredMixin, DeleteView):

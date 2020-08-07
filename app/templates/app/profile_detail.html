@@ -27,8 +27,12 @@
                     <li><strong>Allergies:</strong> {{ profile.allergies }}</li>
                     <li><strong>Existing Health Conditions:</strong> {{ profile.existing_health_conditions }}</li>
                     <li><strong>Family Member:</strong> {{ profile.family_member_type }}</li>
-                    <li><strong>Vaccine Card Image:</strong> {{ profile.vaccine_card_image }}</li>
-                    <img src="{{ vaccine_card_image.url }}">
+                    {% if profile.vaccine_card_image.url %}
+                    <li><strong>Vaccine Card:</strong></li>
+                    <img src="{{ profile.vaccine_card_image.url }}" alt="vaccine card" height="300" width="300">
+                    {% else %}
+                    <li><strong>Vaccine Card:</strong> None Provided</li>
+                    {% endif %}
                 </ul>
                 <a class="btn btn-flat" href="{% url 'profile-update' profile.id %}"> Edit Profile</a>
             </div>
