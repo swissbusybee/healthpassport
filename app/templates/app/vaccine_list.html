@@ -3,16 +3,22 @@
 <div class="banner-manage">
     <div class="container text-center">
         <h1>Vaccine Repository</h1>
-        <p>You can drill into each vaccine for more information</p>
+        <p>You can search for vaccines or view all below</p>
         <a class="btn btn-flat" href="{% url 'vaccine-add' %}"> Add Vaccine</a>
     </div>
 </div>
 
 {% if vaccine_list %}
 
-<div class="container">
+<div class="container mt-3">
+    <form action="{% url 'vaccines' %}" method="get">
+        <input type="text" name="q" value="{{ request.GET.account }}" class="form-control" />
+        <input type="submit" value="Search" class="btn btn-flat" />
+        <a class="btn btn-flat" href="{% url 'vaccines' %}"> Clear & Show All</a>
+    </form>
     <div class="cards-show">
         <div class="card">
+            <h5 class="card-header"><strong>Vaccines</strong></h5>
             <table class="vaccine-table">
                 <tr>
                     <th>Name</th>

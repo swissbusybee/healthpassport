@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from cloudinary.models import CloudinaryField
+from django.utils import timezone
+from datetime import datetime
 
 class FamilyGroup(models.Model):
     family_group_name = models.CharField(max_length=200)
@@ -63,6 +65,9 @@ class Immunization(models.Model):
 
     def __str__(self):
         return self.vaccine.vaccine_name 
+
+    def vaccine_expired(self):
+        return self.expired_by < datetime.now().date()
 
     
 

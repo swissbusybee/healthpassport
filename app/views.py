@@ -6,6 +6,7 @@ from django.views.generic.edit import DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse
+from django.db.models import Q
 from .models import FamilyGroup, Profile, Vaccine, Immunization
 
 def index(request):
@@ -49,13 +50,6 @@ class ProfileCreate(LoginRequiredMixin, CreateView):
     template_name_suffix = '_create_form'
     fields = ['familygroup','first_name', 'last_name', 'date_of_birth', 'phone_number', 'emergency_contact', 'doctor_name_contact', 'blood_type', 'allergies', 'existing_health_conditions', 'family_member_type', 'vaccine_card_image']
     success_url = "/familygroup/{familygroup_id}"
-    
-    # def add_image(request):
-    #     if request.method == "POST":
-    #         if form.is_valid():
-    #             form.save()   
-
-    #     return render(request, 'profile_detail.html', {'form': form})
 
 class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Profile
@@ -70,6 +64,18 @@ class ProfileDelete(LoginRequiredMixin, DeleteView):
 
 class VaccineListView(LoginRequiredMixin, generic.ListView):
     model = Vaccine
+    
+    def get_queryset(self):
+        val = self.request.GET.get("q")
+        if val:
+            vaccine_list = Vaccine.objects.filter(
+                Q(vaccine_name__icontains=val) |
+                Q(disease_type__icontains=val) |
+                Q(required_country__icontains=val) 
+                ).distinct()
+        else:
+            vaccine_list = Vaccine.objects.all()
+        return vaccine_list
 
 class VaccineDetailView(LoginRequiredMixin, generic.DetailView):
     model = Vaccine

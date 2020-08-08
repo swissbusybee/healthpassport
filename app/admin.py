@@ -1,5 +1,6 @@
 from django.contrib import admin
-
+from import_export.admin import ImportExportModelAdmin
+from import_export import resources
 from .models import FamilyGroup, Profile, Vaccine, Immunization
 
 class ImmunizationInline(admin.TabularInline):
@@ -7,12 +8,18 @@ class ImmunizationInline(admin.TabularInline):
     fields = ("expired_by", "date_administered", "administered_by", "certified_by",)
     fk_name = "profile" 
 
-@admin.register(Profile)
-class ProfileAdmin(admin.ModelAdmin):
+class ProfileResource(resources.ModelResource):
+    class Meta:
+        model = Profile
+
+class ProfileAdmin(ImportExportModelAdmin):
+    resource_class = ProfileResource
     list_display = ("first_name", "last_name", "date_of_birth", "phone_number", "emergency_contact", "doctor_name_contact", "blood_type", "allergies", "existing_health_conditions", "family_member_type",)
     list_filter = ("first_name", "last_name", "date_of_birth", "phone_number", "emergency_contact", "doctor_name_contact", "blood_type", "allergies", "existing_health_conditions", "family_member_type",)
     search_fields = ("first_name", "last_name", "date_of_birth", "phone_number", "emergency_contact", "doctor_name_contact", "blood_type", "allergies", "existing_health_conditions", "family_member_type",)
     inlines = [ImmunizationInline]
+
+@admin.register(Profile, ProfileAdmin)
 
 class ProfileInline(admin.TabularInline):
     model = Profile
