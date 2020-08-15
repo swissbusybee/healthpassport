@@ -1,1 +1,1 @@
-web: gunicorn healthpassport.wsgi --log-file -
+web: gunicorn healthpassport.wsgi
