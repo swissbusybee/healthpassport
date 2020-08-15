@@ -12,6 +12,7 @@ psycopg2 = "==2.8.4"
 django-heroku = "*"
 python-decouple = "*"
 gunicorn = "*"
+cloudinary = "*"
 
 [requires]
 python_version = "3.7"
