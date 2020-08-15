@@ -11,6 +11,7 @@ django = "*"
 psycopg2 = "==2.8.4"
 django-heroku = "*"
 python-decouple = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
