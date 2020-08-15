@@ -13,6 +13,7 @@ django-heroku = "*"
 python-decouple = "*"
 gunicorn = "*"
 cloudinary = "*"
+django-environ = "*"
 
 [requires]
 python_version = "3.7"
