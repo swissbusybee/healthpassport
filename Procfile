@@ -1,1 +1,1 @@
-web: gunicorn healthpassport.wsgi:application
+web: gunicorn healthpassport.wsgi:app
