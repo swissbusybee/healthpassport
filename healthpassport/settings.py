@@ -18,6 +18,12 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 import environ
+import dj-database-url
+
+db_from_env = dj_database_url.config()
+DATABASES[‘default’].update(db_from_env)
+
+db_from_env = dj_database_url.config(conn_max_age=600)
 
 env = environ.Env(
     # set casting, default value
