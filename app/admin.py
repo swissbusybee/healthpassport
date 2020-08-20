@@ -62,3 +62,4 @@ class VaccineAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_display = ("vaccine_name", "required_doses", "required_country", "recommended_age", "notes",)
     list_filter = ("vaccine_name", "required_doses", "required_country", "recommended_age",)
     search_fields = ("vaccine_name", "required_doses", "required_country", "recommended_age",)
+

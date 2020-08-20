@@ -18,6 +18,7 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 import environ
+
 # import dj_database_url
 
 # DATABASES['default'] = dj_database_url.config(conn_max_age=600)
@@ -63,6 +64,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'cloudinary',
     'import_export',
+    'sms',
 ]
 
 MIDDLEWARE = [
@@ -177,3 +179,7 @@ cloudinary.config(
   api_secret = os.environ.get('API_SECRET'),
   secure = True
 )
+
+TWILIO_ACCOUNT_SID = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+TWILIO_AUTH_TOKEN = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY'
+TWILIO_DEFAULT_CALLERID = 'NNNNNNNNNN'
