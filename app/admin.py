@@ -31,6 +31,7 @@ class ProfileAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_filter = ("first_name", "last_name", "date_of_birth", "phone_number", "emergency_contact", "doctor_name_contact", "blood_type", "allergies", "existing_health_conditions", "family_member_type",)
     search_fields = ("first_name", "last_name", "date_of_birth", "phone_number", "emergency_contact", "doctor_name_contact", "blood_type", "allergies", "existing_health_conditions", "family_member_type",)
     inlines = [ImmunizationInline]
+    change_list_template = 'admin/app/profile/change_list.html'
 
 class ProfileInline(admin.TabularInline):
     model = Profile
@@ -50,6 +51,7 @@ class ImmunizationAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_display = ("get_vaccine_name", "expired_by", "date_administered", "administered_by", "certified_by",)
     list_filter = ("vaccine", "expired_by", "date_administered", "administered_by", "certified_by",)
     search_fields = ("vaccine", "expired_by", "date_administered", "administered_by", "certified_by",)
+    change_list_template = 'admin/app/immunization/change_list.html'
 
     def get_vaccine_name(self, obj):
         return obj.vaccine.vaccine_name
@@ -62,3 +64,4 @@ class VaccineAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_display = ("vaccine_name", "required_doses", "required_country", "recommended_age", "notes",)
     list_filter = ("vaccine_name", "required_doses", "required_country", "recommended_age",)
     search_fields = ("vaccine_name", "required_doses", "required_country", "recommended_age",)
+    change_list_template = 'admin/app/vaccine/change_list.html'
