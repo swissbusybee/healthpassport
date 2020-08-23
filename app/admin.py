@@ -102,6 +102,7 @@ class VaccineAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_display = ("id", "vaccine_name", "required_doses", "required_country", "recommended_age", "notes", "created_at")
     list_filter = ("vaccine_name", "required_doses", "required_country", "recommended_age",)
     search_fields = ("vaccine_name", "required_doses", "required_country", "recommended_age",)
+
     change_list_template = 'admin/app/vaccine/change_list.html'
     ordering = ("-created_at",)
 
@@ -134,3 +135,4 @@ class VaccineAdmin(ImportExportModelAdmin, admin.ModelAdmin):
             .annotate(y=Count("id"))
             .order_by("-date")
         )
+
