@@ -1,0 +1,57 @@
+[
+    {
+        "model": "app.vaccine",
+        "fields": {
+            "vaccine_name": "DTaP Infanrix",
+            "disease_type": "Diptheria",
+            "required_doses": "2",
+            "required_country": "Tanzania",
+            "recommended_age": "0-1 years",
+            "notes": "To be administered in the upper body"
+        }
+    },
+    {
+        "model": "app.vaccine",
+        "fields": {
+            "vaccine_name": "HepA",
+            "disease_type": "Hepatitis B",
+            "required_doses": "2",
+            "required_country": "Ghana",
+            "recommended_age": "0-5 years",
+            "notes": "To be administered in the upper body"
+        }
+    },
+    {
+        "model": "app.vaccine",
+        "fields": {
+            "vaccine_name": "PCV13",
+            "disease_type": "Pneumococcal",
+            "required_doses": "4",
+            "required_country": "Mexico",
+            "recommended_age": "0-1 years",
+            "notes": "To be administered in the upper body"
+        }
+    },
+    {
+        "model": "app.vaccine",
+        "fields": {
+            "vaccine_name": "Rotarix",
+            "disease_type": "Rotavirus",
+            "required_doses": "3",
+            "required_country": "Switzerland",
+            "recommended_age": "0-1 years",
+            "notes": "To be administered in the upper body"
+        }
+    },
+    {
+        "model": "app.vaccine",
+        "fields": {
+            "vaccine_name": "OPV",
+            "disease_type": "Poliomyelitis (Polio)",
+            "required_doses": "4",
+            "required_country": "Mexico",
+            "recommended_age": "0-1 years",
+            "notes": "To be administered in the upper body"
+        }
+    }
+]
