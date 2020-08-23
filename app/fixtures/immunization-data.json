@@ -3,7 +3,7 @@
         "model": "app.immunization",
         "fields": {
             "vaccine": 1,
-            "profile": 2,
+            "profile": 3,
             "expired_by": "2021-10-25",
             "date_administered": "2009-11-01",
             "administered_by": "Dr. Luwin",
@@ -14,7 +14,7 @@
         "model": "app.immunization",
         "fields": {
             "vaccine": 2,
-            "profile": 2,
+            "profile": 3,
             "expired_by": "2020-03-10",
             "date_administered": "2009-11-01",
             "administered_by": "Dr. Luwin",
@@ -47,7 +47,7 @@
         "model": "app.immunization",
         "fields": {
             "vaccine": 5,
-            "profile": 2,
+            "profile": 3,
             "expired_by": "2023-10-25",
             "date_administered": "2009-11-01",
             "administered_by": "Dr. Luwin",

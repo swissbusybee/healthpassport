@@ -23,7 +23,7 @@ class Vaccine(models.Model):
     required_country = models.CharField(max_length=200, choices=COUNTRY_CHOICES, blank=True)
     recommended_age = models.CharField(max_length=200, choices=AGE_CHOICES, blank=True)
     notes = models.TextField(max_length=500, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
 
     def get_absolute_url(self):
         return reverse('vaccine-detail', args=[str(self.id)])
@@ -46,7 +46,7 @@ class Profile(models.Model):
     existing_health_conditions = models.CharField(max_length=200, blank=True)
     family_member_type = models.CharField(max_length=200, choices=CHOICES, blank=True)
     vaccine_card_image = CloudinaryField('image', blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
     
     def get_absolute_url(self):
         return reverse('profile-detail', args=[str(self.id)])
@@ -61,7 +61,7 @@ class Immunization(models.Model):
     date_administered = models.DateField(null=True, blank=True)
     administered_by = models.CharField(max_length=200, blank=True)
     certified_by = models.CharField(max_length=200, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
 
     def get_absolute_url(self):
         return reverse('immunization-detail', args=[str(self.id)])
