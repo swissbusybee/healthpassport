@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django_heroku
-import dj_database_url
+#import dj_database_url
 from decouple import config
 import cloudinary
 import cloudinary.uploader
@@ -124,6 +124,10 @@ DATABASES = {
     }
 
 }
+
+FIXTURE_DIRS = (
+   '/healthpassport/app/fixtures/',
+)
 
 
 # Password validation
