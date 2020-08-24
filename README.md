@@ -2,7 +2,7 @@
 
 Install Chart.js - pip install django-chartjs
 
-Clear Existing Data from database - python manage.py sqlflush
+Clear Existing Data from database - python manage.py flush
 Recreate Superuser - python manage.py createsuperuser
 
 Load Seed Data: 
