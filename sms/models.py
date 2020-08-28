@@ -19,14 +19,14 @@ class NotifyUser(models.Model):
             account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
             auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
             to_number = os.environ.get('MY_PHONE_NUMBER')
-            
+
             client = Client(account_sid, auth_token)
 
             message = client.messages.create(
                         body="Current result is bad",
                         # temp number works with temp sid
-                        from_="+12513069978",
-                        to=("MY_PHONE_NUMBER")
+                        from_='+12513069978',
+                        to='MY_PHONE_NUMBER'
                 )
 
             print(message.sid)
