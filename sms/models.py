@@ -26,7 +26,7 @@ class NotifyUser(models.Model):
                         body="Current result is bad",
                         # temp number works with temp sid
                         from_='+12513069978',
-                        to='MY_PHONE_NUMBER'
+                        to_number='MY_PHONE_NUMBER'
                 )
 
             print(message.sid)
