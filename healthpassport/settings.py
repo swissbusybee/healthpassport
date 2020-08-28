@@ -12,20 +12,11 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django_heroku
-#import dj_database_url
 from decouple import config
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 import environ
-
-# import dj_database_url
-
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600)
-
-# DATABASES['default'] = dj_database_url.config(default='postgres://...')
-
-# DATABASES['default'] = dj_database_url.parse('postgres://...', conn_max_age=600)
 
 env = environ.Env(
     # set casting, default value
@@ -185,6 +176,6 @@ cloudinary.config(
   secure = True
 )
 
-TWILIO_ACCOUNT_SID = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-TWILIO_AUTH_TOKEN = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY'
-TWILIO_DEFAULT_CALLERID = 'NNNNNNNNNN'
+account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
+auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
+to_number = os.environ.get('MY_PHONE_NUMBER')

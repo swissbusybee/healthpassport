@@ -1,3 +1,4 @@
+import os
 from django.db import models
 from twilio.rest import Client
 
@@ -13,18 +14,20 @@ class NotifyUser(models.Model):
     # DANGER! This is insecure. See http://twil.io/secure
 
     # example
-    # if self.result < 70:
+        if self.result < 70:
 
-        account_sid = 'AC2030a23f808d2e9586da6434102832aa'
-        auth_token = '34750cfe925f5ed85f9da3108237212e'
-        client = Client(account_sid, auth_token)
+            account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
+            auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
+            to_number = os.environ.get('MY_PHONE_NUMBER')
+            
+            client = Client(account_sid, auth_token)
 
-        message = client.messages \
-                        .create(
-                            body="It is time for your vaccination",
-                            from_='+12513069978',
-                            to='+41799329709'
-                        )
+            message = client.messages.create(
+                        body="Current result is bad",
+                        # temp number works with temp sid
+                        from_="+12513069978",
+                        to=("MY_PHONE_NUMBER")
+                )
 
-        print(message.sid)
+            print(message.sid)
         return super().save(*args, **kwargs)
