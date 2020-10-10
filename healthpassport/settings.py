@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'import_export',
     'sms',
     'chartjs',
+    'pwa',
 ]
 
 MIDDLEWARE = [
