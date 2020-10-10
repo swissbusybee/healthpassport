@@ -1,0 +1,21 @@
+"name": "Django PWA",
+    "short_name": "healthpassport",
+    "start_url": "/",
+    "scope": ".",
+    "display": "standalone",
+    "background_color": "#FFF",
+    "theme_color": "#493174",
+    "description": "Test app for Healthpassport and PWA",
+    "dir": "ltr",
+    "lang": "en-US",
+    "orientation": "portrait-primary",
+    "icons": [{
+        "src": "/static/images/apple-touch-icon.png",
+        "type": "image/png",
+        "sizes": "96x96"
+    }, {
+        "src": "/static/images/cover.png",
+        "type": "image/png",
+        "sizes": "512x512"
+    }]
+}
