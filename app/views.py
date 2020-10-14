@@ -9,12 +9,9 @@ from django.http import HttpResponse
 from django.db.models import Q
 from .models import FamilyGroup, Profile, Vaccine, Immunization
 
-#function is used to render base.html. which will be cached by 
-#service worker later on for offline support
-def base_layout(request):
-    template='app/base.html'
-    return render(request,template)
-
+#add function to display for serviceworker
+# def base_layout(request):
+#     return render(request, 'app/base.html')
 
 def index(request):
     return render(request, 'app/index.html')
