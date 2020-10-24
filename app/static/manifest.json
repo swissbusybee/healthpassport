@@ -1,5 +1,5 @@
 {
-    "name": "Healthpassort",
+    "name": "Healthpassport -v1",
     "short_name": "Healthpassport",
     "start_url": ".", 
     "theme_color": "#009578",
@@ -19,4 +19,3 @@
     }
   ]
 }
-
