@@ -1,10 +1,13 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
+{% load pwa_extras %}
+{% load static %}
 
 <head>
     <title>Health Passport</title>
     <meta charset="UTF-8">
+    <!-- {% load_manifest %} -->
+    
     <!-- This is to defined the viewport and how the app must behave when on full screen. This is required too. -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="{% static 'manifest.json' %}">
@@ -25,7 +28,9 @@
 </head>
 
 <body>
+
     {% include 'app/partials/navbar.html' %}
+    {% load_worker %}
 </body>
 
 <!-- Optional JavaScript -->
