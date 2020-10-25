@@ -9,6 +9,10 @@ from django.http import HttpResponse
 from django.db.models import Q
 from .models import FamilyGroup, Profile, Vaccine, Immunization
 
+#add function to display for serviceworker
+# def base_layout(request):
+#     return render(request, 'app/base.html')
+
 def index(request):
     return render(request, 'app/index.html')
 
