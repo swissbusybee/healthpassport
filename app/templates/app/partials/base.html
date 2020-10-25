@@ -1,34 +1,13 @@
 <!DOCTYPE html>
 <html>
-{% load pwa %}
+{% load pwa_extras %}
 {% load static %}
 
 <head>
-    {% progressive_web_app_meta %}
     <title>Health Passport</title>
     <meta charset="UTF-8">
-
-    <!-- Error notification for working with PWA -->
-    <script type="text/javascript">
-
-       if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js',
-    {scope: '/'})
-        .then(function(registration) {
-            console.log('SW Success')
-
-        }).catch(function(errors) {
-        console.log('SW failed: ', error)
-
-    });
-
-} else {
-    console.log('SW not supported')
-} 
-
-    </script>
+    <!-- {% load_manifest %} -->
     
-
     <!-- This is to defined the viewport and how the app must behave when on full screen. This is required too. -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="{% static 'manifest.json' %}">
@@ -49,7 +28,9 @@
 </head>
 
 <body>
+
     {% include 'app/partials/navbar.html' %}
+    {% load_worker %}
 </body>
 
 <!-- Optional JavaScript -->

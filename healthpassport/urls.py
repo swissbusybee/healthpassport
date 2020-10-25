@@ -23,7 +23,7 @@ urlpatterns = [
     path('', include('app.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('', include('pwa.urls')),
+    path('', include('django_pwa.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 admin.site.site_header = "Health Passport Adminstration"
