@@ -1,11 +1,13 @@
 
 {
-    "name": "Healthpassport -v1",
+    "name": "Health Passport -v1",
     "short_name": "Healthpassport",
-    "start_url": "/", 
     "theme_color": "#009578",
+    "start_url": "/",
     "background_color": "#6dcdb1",
-    "display": "standalone", 
+    "display": "standalone",
+    "description": " A Vaccine Tracker for Haelath Passport",
+    "orientation": "any",
     "icons": [
       { 
 
