@@ -2,6 +2,8 @@
 ## Digital Health & Vaccination Tracker
 ### Health Passport was developed to solve a real world problem of not having vaccination & critical health data in a central location.
 
+Link: http://www.healthpassport.ch/
+
 ![alt text](https://images.unsplash.com/photo-1581553673739-c4906b5d0de8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80)
 
 #### Language Used: Python
